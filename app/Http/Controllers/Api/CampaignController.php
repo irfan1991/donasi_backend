@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Campaign;
 use App\Models\Donation;
+use App\Models\ReportCampaign;
 
 class CampaignController extends Controller
 {
@@ -44,6 +45,8 @@ class CampaignController extends Controller
         //get data donation by campaign
         $donations = Donation::with('donatur')->where('campaign_id', $campaign->id)->where('status', 'success')->latest()->get();
 
+        $reports = ReportCampaign::where('campaign_id', $campaign->id)->latest()->get();
+
         if($campaign) {
 
             //return with response JSON
@@ -51,7 +54,8 @@ class CampaignController extends Controller
                 'success'   => true,
                 'message'   => 'Detail Data Campaign : '. $campaign->title,
                 'data'      => $campaign,
-                'donations' => $donations
+                'donations' => $donations,
+                'reports' => $reports
             ], 200);
         }
 

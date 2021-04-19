@@ -34,6 +34,12 @@ Route::prefix('admin')->group(function () {
         Route::resource('/category', CategoryController::class,['as' => 'admin']);
         //route resource campaign
         Route::resource('/campaign', CampaignController::class, ['as' => 'admin']);
+        //route resource report-campaign
+        Route::resource('/campaign/report', ReportCampaignController::class, ['as' => 'admin']);
+        //route resource report-campaign
+        Route::get('/campaign/reportall/{id}', 'App\Http\Controllers\Admin\ReportCampaignController@getReportCampaigns')->name('admin.campaign.report');
+        //route resource report-campaign
+        Route::get('/campaign/reportadd/{id}', 'App\Http\Controllers\Admin\ReportCampaignController@createReport')->name('admin.report.add');
         //route donatur
         Route::get('/donatur', [DonaturController::class, 'index'])->name('admin.donatur.index');
         //route donation
@@ -42,6 +48,6 @@ Route::prefix('admin')->group(function () {
         //route profile
         Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
         //route resource slider
-Route::resource('/slider', SliderController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
-    });
+        Route::resource('/slider', SliderController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
+            });
 });

@@ -65,6 +65,7 @@
                                 </td>
                                 <td class="px-10 py-2 text-center">
                                     <a href="{{ route('admin.campaign.edit', $campaign->id) }}" class="bg-indigo-600 px-4 py-2 rounded shadow-sm text-xs text-white focus:outline-none">EDIT</a>
+                                    <a href="{{ route('admin.campaign.report', $campaign->id) }}" class="bg-green-600 px-4 py-2 rounded shadow-sm text-xs text-white focus:outline-none">Report</a>
                                     <button onClick="destroy(this.id)" id="{{ $campaign->id }}" class="bg-red-600 px-4 py-2 rounded shadow-sm text-xs text-white focus:outline-none">HAPUS</button>
                                 </td>
                             </tr>

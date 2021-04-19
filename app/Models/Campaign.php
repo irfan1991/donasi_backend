@@ -17,6 +17,11 @@ class Campaign extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function reportCampaign()
+    {
+        return $this->hasMany(ReportCampaign::class,'campaign_id');
+    }
+
       /**
      * user
      *

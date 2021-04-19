@@ -105,7 +105,8 @@ class CampaignController extends Controller
             'max_date'          => 'required',
             'description'       => 'required'
         ]); 
-
+        
+        
         //check jika image kosong
         if($request->file('image') == '') {
             
